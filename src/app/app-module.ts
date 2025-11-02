@@ -1,21 +1,36 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import { ButtonModule } from 'primeng/button';
+import Aura from '@primeuix/themes/aura';
+import Nora from '@primeuix/themes/nora';
+
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Header } from './header/header';
+import { Weather } from './weather/weather';
 
 @NgModule({
   declarations: [
     App,
-    Header
+    Header,
+    Weather
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideAnimationsAsync(),
+    providePrimeNG({
+        theme: {
+            preset: Nora
+        }
+    })
   ],
   bootstrap: [App]
 })

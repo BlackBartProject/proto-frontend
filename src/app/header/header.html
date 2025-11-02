@@ -1,3 +1,19 @@
-<div style="border: 2px solid blue;">
-    <p>header works!</p>
-</div>
+<header class="flex" style="border: 1px red dotted">
+    <div class="flex flex-1 mr-8 flex-none align-items-center justify-content-center" style="border: 2px green dotted"><!--mr-8-->
+        <h2 style="font-family: Helvetica; font-style: bold;">PROTOVIRTUAL</h2>
+    </div>
+
+    <nav class="flex flex-1 flex-grow-1 align-items-center justify-content-evenly" style="border: 2px blue dotted">
+        <!--navigation buttons-->
+        <a class=" flex ">Protovirtual</a><!--routerLink="/home"-->
+        <a class=" flex " routerLink="/about" routerLinkActive="active">Proyectos</a>
+        <a class=" flex " routerLink="/contact" routerLinkActive="active">XLR8</a>
+        <a class=" flex" routerLink="/contact" routerLinkActive="active">El Creador</a>
+        <a class=" flex " routerLink="/contact" routerLinkActive="active">Critica y Pensamientos</a>
+    </nav>
+
+    <div class="flex flex-1 flex-shrink-0 align-items-center justify-content-center">
+       <p class="flex"><-- Weather Widget --></p>
+    </div>
+
+</header>
