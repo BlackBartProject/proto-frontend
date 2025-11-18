@@ -1,19 +1,22 @@
 <header class="flex" style="border: 1px red dotted">
     <div class="flex flex-1 mr-8 flex-none align-items-center justify-content-center" style="border: 2px green dotted"><!--mr-8-->
-        <h2 style="font-family: Helvetica; font-style: bold;">PROTOVIRTUAL</h2>
+        <h2 style="font-family: Helvetica; font-style: bold;" class="logo">PROTOVIRTUAL</h2>
     </div>
 
-    <nav class="flex flex-1 flex-grow-1 align-items-center justify-content-evenly" style="border: 2px blue dotted">
+    <nav class="flex flex-1 flex-grow-1 align-items-center justify-content-evenly " style="border: 2px blue dotted">
         <!--navigation buttons-->
-        <a class=" flex ">Protovirtual</a><!--routerLink="/home"-->
-        <a class=" flex " routerLink="/about" routerLinkActive="active">Proyectos</a>
+        <!-- <a class=" flex ">Protovirtual</a>
+        <a class=" flex " routerLink="/about" routerLinkActive="">Proyectos</a>
         <a class=" flex " routerLink="/contact" routerLinkActive="active">XLR8</a>
         <a class=" flex" routerLink="/contact" routerLinkActive="active">El Creador</a>
-        <a class=" flex " routerLink="/contact" routerLinkActive="active">Critica y Pensamientos</a>
+        <a class=" flex " routerLink="/contact" routerLinkActive="active">Crítica y Pensamientos</a> -->
+        <ng-container *ngFor="let route of navigationRoutes">
+            <a class="flex nav-links" [routerLink]="route.routerLink" [routerLinkActive]="route.routerLinkActive">{{route.title}}</a>
+        </ng-container>
     </nav>
 
     <div class="flex flex-1 flex-shrink-0 align-items-center justify-content-center">
-       <p class="flex"><-- Weather Widget --></p>
+       <app-weather></app-weather>
     </div>
 
 </header>

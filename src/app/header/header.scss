@@ -1,3 +1,31 @@
 header {
-    background-color: rgb(99, 108, 63);
+    background-color:black;
 }
+.logo {
+    background: linear-gradient(to right, #1143f8, #1f70f2, #8944f8, #03296c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+a,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+.nav-links {
+    font-family: Verdana;
+    font-size: medium;
+    background: linear-gradient(to right, #1066f9, #4db1ef, #84cbf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: #edf2e1;
+}
+.nav-links:hover {
+    font-family: Verdana;
+    font-size: medium;
+    background: linear-gradient(to right, #7fcbf7, #d9f1fc, #96d6f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: #92f4f4;
+}
+
