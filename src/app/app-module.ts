@@ -11,12 +11,14 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Header } from './header/header';
 import { Weather } from './weather/weather';
+import { LandingPage } from './landing-page/landing-page';
 
 @NgModule({
   declarations: [
     App,
     Header,
-    Weather
+    Weather,
+    LandingPage
   ],
   imports: [
     BrowserModule,
