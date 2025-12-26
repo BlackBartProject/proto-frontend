@@ -8,10 +8,13 @@ import Nora from '@primeuix/themes/nora';
 
 
 import { AppRoutingModule } from './app-routing-module';
+import { provideHttpClient } from '@angular/common/http';
+
 import { App } from './app';
 import { Header } from './header/header';
 import { Weather } from './weather/weather';
 import { LandingPage } from './landing-page/landing-page';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { LandingPage } from './landing-page/landing-page';
         theme: {
             preset: Nora
         }
-    })
+    }),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })

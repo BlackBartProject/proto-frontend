@@ -38,7 +38,8 @@ export class Header implements OnInit {
             routerLink: '/contact',
             routerLinkActive: 'active',
             title: 'Crítica y Pensamientos'
-        }
+        },
+
     ]; 
 
     constructor() {}
