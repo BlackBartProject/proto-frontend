@@ -47,13 +47,4 @@ export class Header implements OnInit {
     ngOnInit(): void {
         console.log('Header component init...');
     }
-
-    /** 
-     * <a class=" flex ">Protovirtual</a><!--routerLink="/home"-->
-        <a class=" flex " routerLink="/about" routerLinkActive="">Proyectos</a>
-        <a class=" flex " routerLink="/contact" routerLinkActive="active">XLR8</a>
-        <a class=" flex" routerLink="/contact" routerLinkActive="active">El Creador</a>
-        <a class=" flex " routerLink="/contact" routerLinkActive="active">Crítica y Pensamientos</a>
-    */
-
 }

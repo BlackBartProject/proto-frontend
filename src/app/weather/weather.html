@@ -1,11 +1,21 @@
-<section style="border: 1px dotted blue;" class="flex w-full font-google">
+<section class="flex w-full">
     <!--Digital watch-->
-    <div style="border: 1px dotted red;" class="flex h-4rem flex-column flex-grow-1  align-items-center justify-content-center">
-        <h2>{{currentTime | date: 'HH:mm:ss'}}</h2>
+    <div class="flex h-4rem flex-column flex-grow-1  align-items-center justify-content-center">
+        <h2 class="parent-font time">{{currentTime | date: 'HH:mm:ss'}}</h2><!--{{currentTime | date: 'HH:mm:ss'}}-->
     </div>
     <!--Weather-->
-    <div style="border: 1px dotted green;" class="flex h-4rem flex-column flex-grow-1  align-items-center justify-content-center">
-        <h3>Weather</h3>
+    <div class="flex h-4rem flex-grow-1 align-items-center justify-content-center">
+        @if (icon && degrees) {
+            <img 
+                class="flex" 
+                [src]="icon"
+                [pTooltip]="location" 
+                tooltipPosition="bottom"
+                alt="Weather icon" 
+                width="50px" 
+                height="50px">
+            <h3 class="flex">{{degrees}}</h3>
+        }
     </div>    
 
 </section>

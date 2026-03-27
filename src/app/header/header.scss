@@ -1,32 +1,53 @@
 header {
     background-color:black;
 }
-.logo {
-    background: linear-gradient(to right, #1143f8, #1f70f2, #8944f8, #03296c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.font-logo {
     font-family: Helvetica;
     font-style:bold;
 }
 
-a,
-a:active,
-a:visited {
+.animated-font {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #043e81 0%,
+            #2f9acf 29%,
+            #27dbe8 67%,
+            #bbedf4 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 20s linear infinite;
+    display: inline-block;}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+a, a:active, a:visited {
     text-decoration: none;
 }
 
 .nav-links {
     font-family: Verdana;
-    font-size: medium;
-    background: linear-gradient(to right, #1066f9, #4db1ef, #84cbf8);
+    font-size: large;
+    font-weight: lighter;
+    background: linear-gradient(to left, #1066f9, #07bed6, #0e62fd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: #edf2e1;
 }
 .nav-links:hover {
     font-family: Verdana;
-    font-size: medium;
-    background: linear-gradient(to right, #7fcbf7, #d9f1fc, #96d6f6);
+    font-size: large;
+    font-weight: lighter;
+    background: linear-gradient(to right, #0693b9, #0e62fd, #13a4cd); // #7fcbf7, #d9f1fc, #96d6f6
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: #92f4f4;
