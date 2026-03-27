@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { WeatherApi } from '../weather/weather-api';
+import { WeatherApi } from '../shared/service/weather-api';
 import { interval, map, startWith, Subscription } from 'rxjs';
 
+const LATITUDE = 20.351442907826602;
+const LONGITUDE = -102.76288324036113;
 @Component({
   selector: 'app-weather',
   standalone: false,
@@ -9,20 +11,29 @@ import { interval, map, startWith, Subscription } from 'rxjs';
   styleUrl: './weather.scss'
 })
 export class Weather implements OnInit, OnDestroy {
-    icon: string = '';
     currentTime: Date = new Date();
     subscription: Subscription = new Subscription();
+
+    // Weather API:
+    icon: string = '';
+    degrees: string = '';
+    location: string = '';
 
     constructor(private weatherApi: WeatherApi) {
     }
 
-    ngOnInit(): void {
-        console.log('weather component...');
-        this.weatherApi.getCurrentWeather().subscribe((data) => {
-            this.icon = data.current.condition.icon;
-            console.log('weather data:', data.current.condition.icon);
-        });
-       
+    async ngOnInit() {
+
+        await navigator.geolocation.getCurrentPosition((currentPos) => {
+
+            this.weatherApi.normalizeCurrentWeatherResponse(currentPos.coords.latitude, currentPos.coords.longitude).subscribe((data) => {
+                console.log('normalizeCurrentWeatherResponse...', data);
+                this.icon = data.condition.icon;
+                this.degrees = `${data.condition.temperature_celcius}°`;
+                this.location = `${data.location.name}, ${data.location.region}`;
+            });
+        });    
+
         this.subscription = interval(1000).pipe(
             startWith(0),
             map(() => new Date())

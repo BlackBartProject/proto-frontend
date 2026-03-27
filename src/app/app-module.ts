@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { ButtonModule } from 'primeng/button';
-import Aura from '@primeuix/themes/aura';
+import { TooltipModule } from 'primeng/tooltip';
+
 import Nora from '@primeuix/themes/nora';
 
 
@@ -26,7 +27,8 @@ import { LandingPage } from './landing-page/landing-page';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    TooltipModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

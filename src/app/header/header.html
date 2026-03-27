@@ -1,20 +1,18 @@
-<header class="flex" style="border: 1px red dotted">
-    <div class="flex  mr-8 flex-none align-items-center justify-content-center" style="border: 2px green dotted"><!--mr-8-->
-        <h2 style="font-family: Helvetica; font-style: bold;" class="logo">PROTOVIRTUAL</h2>
+<header class="flex">
+    <div class="flex  mr-8 flex-none align-items-center justify-content-center">
+        <h2 class="font-logo animated-font">
+            <a [routerLink]="'/home'" [routerLinkActive]="'active'">PROTOVIRTUAL</a>
+        </h2>
     </div>
 
-    <nav class="flex flex-grow-1  align-items-center justify-content-evenly " style="border: 2px blue dotted">
-        <!--navigation buttons-->
-        <!-- <a class=" flex ">Protovirtual</a>
-        <a class=" flex " routerLink="/about" routerLinkActive="">Proyectos</a>
-        <a class=" flex " routerLink="/contact" routerLinkActive="active">XLR8</a>
-        <a class=" flex" routerLink="/contact" routerLinkActive="active">El Creador</a>
-        <a class=" flex " routerLink="/contact" routerLinkActive="active">Crítica y Pensamientos</a> -->
+    <!--navigation buttons-->
+    <nav class="flex flex-grow-1  align-items-center justify-content-evenly ">
         <ng-container *ngFor="let route of navigationRoutes">
             <a class="flex nav-links" [routerLink]="route.routerLink" [routerLinkActive]="route.routerLinkActive">{{route.title}}</a>
         </ng-container>
     </nav>
 
+    <!--weather app-->
     <div class="flex flex-grow-1">
        <app-weather class="w-full"></app-weather>
     </div>

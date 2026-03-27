@@ -1,6 +1,22 @@
 /* time.component.css */
-.font-google {
-    font-family: "Verdana";
-    font-optical-sizing: auto;
-    font-size: larger;
-}
+
+    h2 {
+        font-family: "Verdana","sans-serif";
+        font-optical-sizing: auto;
+        font-size: larger;
+        font-weight: lighter;
+
+        background: rgb(211, 213, 216);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    h3 {
+        font-family: "Verdana","sans-serif";
+        font-optical-sizing: auto;
+        font-size: larger;
+        font-weight: lighter;
+
+    }
+
+
