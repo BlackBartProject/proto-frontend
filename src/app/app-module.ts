@@ -4,6 +4,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { providePrimeNG } from 'primeng/config';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 import Nora from '@primeuix/themes/nora';
 
@@ -28,7 +30,8 @@ import { LandingPage } from './landing-page/landing-page';
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
-    TooltipModule
+    TooltipModule,
+    ToastModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -38,7 +41,8 @@ import { LandingPage } from './landing-page/landing-page';
             preset: Nora
         }
     }),
-    provideHttpClient()
+    provideHttpClient(),
+    MessageService
   ],
   bootstrap: [App]
 })

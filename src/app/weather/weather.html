@@ -1,7 +1,7 @@
 <section class="flex w-full">
     <!--Digital watch-->
     <div class="flex h-4rem flex-column flex-grow-1  align-items-center justify-content-center">
-        <h2 class="parent-font time">{{currentTime | date: 'HH:mm:ss'}}</h2><!--{{currentTime | date: 'HH:mm:ss'}}-->
+        <h2 class="parent-font time">{{currentTime | date: 'HH:mm:ss'}}</h2>
     </div>
     <!--Weather-->
     <div class="flex h-4rem flex-grow-1 align-items-center justify-content-center">
@@ -15,7 +15,9 @@
                 width="50px" 
                 height="50px">
             <h3 class="flex">{{degrees}}</h3>
+        } @else {
+            <p class="flex">Wheater is no available at this time, ensure the geolocalitation is enable.</p>
         }
     </div>    
-
+    <!-- <p-toast></p-toast> -->
 </section>
