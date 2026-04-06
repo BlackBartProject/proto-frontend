@@ -1,18 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { WeatherApi } from '../shared/service/weather-api';
-import { interval, map, startWith, Subscription } from 'rxjs';
+import { interval, map, startWith } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-const LATITUDE = 20.351442907826602;
-const LONGITUDE = -102.76288324036113;
+const INTERVAL_WEATHER_TIME = 30000;
 @Component({
   selector: 'app-weather',
   standalone: false,
   templateUrl: './weather.html',
   styleUrl: './weather.scss'
 })
-export class Weather implements OnInit, OnDestroy {
+export class Weather implements OnInit {
+
     currentTime: Date = new Date();
-    subscription: Subscription = new Subscription();
+    private destroyRef = inject(DestroyRef);
 
     // Weather API:
     icon: string = '';
@@ -22,31 +23,30 @@ export class Weather implements OnInit, OnDestroy {
     constructor(private weatherApi: WeatherApi) {
     }
 
-    async ngOnInit() {
+    ngOnInit() {
 
-        await navigator.geolocation.getCurrentPosition((currentPos) => {
+        interval(INTERVAL_WEATHER_TIME).pipe(startWith(0), takeUntilDestroyed(this.destroyRef)).subscribe(() => {        
+            navigator.geolocation.getCurrentPosition((currentPos) => {
+                this.updateCurrentWeather(currentPos.coords.latitude, currentPos.coords.longitude);   
+            });  
+        });      
 
-            this.weatherApi.normalizeCurrentWeatherResponse(currentPos.coords.latitude, currentPos.coords.longitude).subscribe((data) => {
-                console.log('normalizeCurrentWeatherResponse...', data);
-                this.icon = data.condition.icon;
-                this.degrees = `${data.condition.temperature_celcius}°`;
-                this.location = `${data.location.name}, ${data.location.region}`;
-            });
-        });    
-
-        this.subscription = interval(1000).pipe(
+        interval(1000).pipe(
             startWith(0),
-            map(() => new Date())
-        ).subscribe((date) => {
-            this.currentTime = date;
-        });
+            map(() => new Date()),
+            takeUntilDestroyed(this.destroyRef))
+            .subscribe((date) => {
+                this.currentTime = date;
+            });
 
        console.log('time: ', this.currentTime);
-
     }
 
-ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-}
-
+    updateCurrentWeather(latitude: number, longitude: number): void {
+       this.weatherApi.normalizeCurrentWeatherResponse(latitude, longitude).pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
+            this.icon = data.condition.icon;
+            this.degrees = `${data.condition.temperature_celcius}°`;
+            this.location = `${data.location.name}, ${data.location.region}`;
+        }); 
+    }
 }
