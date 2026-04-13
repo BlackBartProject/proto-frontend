@@ -35,7 +35,7 @@ export class Weather implements OnInit {
             startWith(0),
             map(() => new Date()),
             takeUntilDestroyed(this.destroyRef))
-            .subscribe((date) => {
+            .subscribe((date: Date) => {
                 this.currentTime = date;
             });
 
