@@ -1,5 +1,9 @@
 /* time.component.css */
 
+    ::ng-deep .p-toast {
+        opacity: 0.85;
+    }
+
     h2 {
         font-family: "Verdana","sans-serif";
         font-optical-sizing: auto;

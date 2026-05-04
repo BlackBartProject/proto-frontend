@@ -8,7 +8,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
-import Nora from '@primeuix/themes/nora';
+import Lara from '@primeuix/themes/lara/';
 
 
 import { AppRoutingModule } from './app-routing-module';
@@ -33,13 +33,14 @@ import { LandingPage } from './landing-page/landing-page';
     ButtonModule,
     TooltipModule,
     ToastModule,
+    RippleModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
     providePrimeNG({
         theme: {
-            preset: Nora
+            preset: Lara
         }
     }),
     provideHttpClient(),
