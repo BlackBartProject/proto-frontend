@@ -4,7 +4,7 @@ import { MessageService } from 'primeng/api';
 import { catchError, interval, map, startWith, throwError } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-const INTERVAL_WEATHER_TIME = 30000;
+const INTERVAL_WEATHER_TIME = 3 * 100000;
 @Component({
   selector: 'app-weather',
   standalone: false,
