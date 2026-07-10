@@ -1,9 +1,10 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { WeatherApi } from '../shared/service/weather-api';
-import { interval, map, startWith } from 'rxjs';
+import { MessageService } from 'primeng/api';
+import { catchError, interval, map, startWith, throwError } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-const INTERVAL_WEATHER_TIME = 30000;
+const INTERVAL_WEATHER_TIME = 3 * 100000;
 @Component({
   selector: 'app-weather',
   standalone: false,
@@ -13,18 +14,18 @@ const INTERVAL_WEATHER_TIME = 30000;
 export class Weather implements OnInit {
 
     currentTime: Date = new Date();
-    private destroyRef = inject(DestroyRef);
+    private destroyRef = inject(DestroyRef); // reemplaza la instancia en contructor
 
     // Weather API:
     icon: string = '';
     degrees: string = '';
     location: string = '';
 
-    constructor(private weatherApi: WeatherApi) {
+    constructor(private weatherApi: WeatherApi, private messageService: MessageService) {
     }
 
     ngOnInit() {
-
+        
         interval(INTERVAL_WEATHER_TIME).pipe(startWith(0), takeUntilDestroyed(this.destroyRef)).subscribe(() => {        
             navigator.geolocation.getCurrentPosition((currentPos) => {
                 this.updateCurrentWeather(currentPos.coords.latitude, currentPos.coords.longitude);   
@@ -35,7 +36,7 @@ export class Weather implements OnInit {
             startWith(0),
             map(() => new Date()),
             takeUntilDestroyed(this.destroyRef))
-            .subscribe((date) => {
+            .subscribe((date: Date) => {
                 this.currentTime = date;
             });
 
@@ -43,10 +44,16 @@ export class Weather implements OnInit {
     }
 
     updateCurrentWeather(latitude: number, longitude: number): void {
-       this.weatherApi.normalizeCurrentWeatherResponse(latitude, longitude).pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
-            this.icon = data.condition.icon;
-            this.degrees = `${data.condition.temperature_celcius}°`;
-            this.location = `${data.location.name}, ${data.location.region}`;
-        }); 
+       this.weatherApi.normalizeCurrentWeatherResponse(latitude, longitude).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(
+            (data) => {
+                this.icon = data.condition.icon;
+                this.degrees = `${data.condition.temperature_celcius}°`;
+                this.location = `${data.location.name}, ${data.location.region}`;
+            },
+            (error) => {
+                console.error('Error fetching weather:', error);
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'No se pudo obtener los datos del clima' });
+            }
+        );
     }
 }
