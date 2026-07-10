@@ -9,6 +9,7 @@ h2,
 p {
     flex-basis: min-content;
     color: black;
+    font-size: 18px;
 }
 
 .second-section {
@@ -17,10 +18,13 @@ p {
 
 .separator {
     background: linear-gradient(90deg, #1066f9, #07bed6, #0e62fd);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
     width: 40%;
     height: 4px;
     margin-top: 5rem;
     margin-bottom: 3rem;
+    border: none;
 }
 
 #universe-img {
