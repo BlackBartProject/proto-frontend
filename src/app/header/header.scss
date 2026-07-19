@@ -1,5 +1,11 @@
 header {
     background-color:black;
+    // set the header sticky
+    box-shadow: 0 7px 5px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    position: sticky;
+    top:0;
+    z-index: 1000;
 }
 .font-logo {
     font-family: Helvetica;

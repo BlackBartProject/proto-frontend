@@ -2,13 +2,13 @@ h1 {
     font-size: 4rem;
     font-weight: 200;
     flex-basis: min-content;
-    color: black;
+    color: rgb(252, 252, 252);
 }
 
 h2,
 p {
     flex-basis: min-content;
-    color: black;
+    color: rgb(252, 252, 252);
     font-size: 18px;
 }
 
@@ -17,11 +17,11 @@ p {
 }
 
 .separator {
-    background: linear-gradient(90deg, #1066f9, #07bed6, #0e62fd);
+    background: linear-gradient(90deg, #c34bfa, #07bed6, #28f886);
         -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
         mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
     width: 40%;
-    height: 4px;
+    height: 2px;
     margin-top: 5rem;
     margin-bottom: 3rem;
     border: none;
@@ -33,13 +33,6 @@ p {
     margin-left: 25rem;
 }
 
-
-
 a, a:active, a:visited {
     text-decoration: none;
-}
-
-.xlr8-link {
-    font-size: 18px;
-    color: black;
 }
