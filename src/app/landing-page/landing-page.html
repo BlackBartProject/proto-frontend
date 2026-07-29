@@ -2,14 +2,14 @@
 
 
 <div class="flex flex-column">
-    <div class="flex justify-content-evenly">
+    <div class="flex flex-column md:flex-row align-items-center justify-content-evenly">
         <h1>Todo empieza por una idea</h1>
-        <img id="universe-img" alt="Protovirtual Universe" src="images/universe.png">
+        <img class="universe-img" alt="Protovirtual Universe" src="images/universe.png">
     </div>
     <hr class="separator">
-    <div class="flex justify-content-evenly">
+    <div class="flex flex-column md:flex-row align-items-center justify-content-evenly">
         <img alt="Protovirtual Android first render" src="images/android.png">
-        <div class="flex flex-column second-section">
+        <div class="flex flex-column">
             <h2 style="font-size: 2rem;">Inicios de XLR8</h2>
             <p>Todo empezo con un boceto y un dibujo de un felino robot.</p>
             <p>Ver XLR8 <a [routerLink]="'/contact'" [routerLinkActive]="'active'"><i class="pi pi-arrow-up-right" style="color: green"></i></a></p>
@@ -22,8 +22,8 @@
                 <strong style="font-weight: 700;">Buscando crear e innovar</strong>
             </h1>
         </div>
-        <div style="margin: 0 27rem;" class="flex justify-content-center">
-            <p style="flex-basis: fit-content;">La materializacion de una idea, de un sueño que siempre se ha perseguido.
+        <div class="flex justify-content-center px-3 md:px-0">
+            <p class="w-11 md:w-8 lg:w-5">La materializacion de una idea, de un sueño que siempre se ha perseguido.
                 Por años soñando en crear algo grande ahora aqui es donde empieza...
             </p>
         </div>

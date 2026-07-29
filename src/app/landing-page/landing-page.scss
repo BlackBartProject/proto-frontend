@@ -7,13 +7,8 @@ h1 {
 
 h2,
 p {
-    flex-basis: min-content;
     color: rgb(252, 252, 252);
     font-size: 18px;
-}
-
-.second-section {
-    margin-left: 14rem;
 }
 
 .separator {
@@ -27,10 +22,10 @@ p {
     border: none;
 }
 
-#universe-img {
-    height: 26rem;
-    width: 38rem;
-    margin-left: 25rem;
+.universe-img {
+    width: 100%;
+    max-width: 38rem;
+    height: auto;
 }
 
 a, a:active, a:visited {
