@@ -8,16 +8,19 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
+// Themes
 import Lara from '@primeuix/themes/lara/';
 
 
 import { AppRoutingModule } from './app-routing-module';
 import { provideHttpClient } from '@angular/common/http';
 
+// Components
 import { App } from './app';
 import { Header } from './header/header';
 import { Weather } from './weather/weather';
 import { LandingPage } from './landing-page/landing-page';
+import { Footer } from './footer/footer';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { LandingPage } from './landing-page/landing-page';
     App,
     Header,
     Weather,
-    LandingPage
+    LandingPage,
+    Footer
   ],
   imports: [
     BrowserModule,
